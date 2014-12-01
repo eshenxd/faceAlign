@@ -26,14 +26,14 @@ struct LastPos  //存放矫正过后的人脸关键点位置坐标
 class FaceAlign
 {
 public:
-	FaceAlign(IplImage*,int*,int*);//同样是灰度的
+	FaceAlign(IplImage*,int*,int*);//注意这里必须输入灰度图像
 	~FaceAlign();
 
 	int runFaceAlign();
 	
-	IplImage* getAlignimg();
+	IplImage* getAlignimg();//获取对齐后的人脸图片
 
-	int* getFaceAlignPos();
+	int* getFaceAlignPos();//获取对齐后的人脸关键点位置坐标
 
 protected:
 private:
@@ -51,4 +51,6 @@ private:
 	CvMat* map;
 
 	int* FinalPos;
+	//这个10维数组存放的是10个人脸关键点的坐标
+	//按顺序分别为左右眼，鼻尖，左右嘴角
 };
